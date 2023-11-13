@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Système de Réservation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    label, select, 
+    input {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    td:hover {
+      background-color: #f5f5f5;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+      table {
+        overflow-x: auto;
+        display: block;
+      }
+
+      td,
+      th {
+        min-width: 80px;
+      }
+
+      th {
+        position: sticky;
+        top: 0;
+        background-color: #4CAF50;
+        color: white;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Système de Réservation</h1>
+
+  <form id="reservationForm">
+    <label for="userName">Nom de l'utilisateur:</label>
+    <input type="text" id="userName" required>
+
+    <label for="resourceName">Nom de la ressource:</label>
+    <input type="text" id="resourceName" required>
+
+    <label for="resourceDay">Jour:</label>
+    <select name="resourceDay" id="resourceDay">
+      <option value="">--Selectionne un jour--</option>
+      <option value="monday">Lundi</option>
+      <option value="tuesday">Mardi</option>
+      <option value="wednesday">Mercredi</option>
+      <option value="thursday">Jeudi</option>
+      <option value="friday">Vendredi</option>
+      <option value="saturday">Samedi</option>
+    </select>
+
+
+    <label for="startTime">Heure de début (hh:mm):</label>
+    <select name="startTime" id="startTime">
+      <option value="">--Selectionne l'heure de Début--</option>
+      <option value="9">9h00</option>
+      <option value="10">10h00</option>
+      <option value="11">11h00</option>
+      <option value="12">12h00</option>
+    </select>
+
+    <label for="endTime">Heure de fin (hh:mm):</label>
+    <select name="endTime" id="endTime">
+      <option value="">--Selectionne l'heure de Fin--</option>
+      <option value="10">10h00</option>
+      <option value="11">11h00</option>
+      <option value="12">12h00</option>
+      <option value="13">13h00</option>
+    </select>
+
+    <button type="button" onclick="submitReservation()">Réserver</button>
+  </form>
+
+  <h2>Réservations existantes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Lundi</th>
+        <th>Mardi</th>
+        <th>Mercredi</th>
+        <th>Jeudi</th>
+        <th>Vendredi</th>
+        <th>Samedi</th>
+        <th>Dimanche</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Les heures peuvent être ajustées selon vos besoins -->
+      <tr id="9">
+        <td>09:00 - 10:00</td>
+        <td id="monday_9"></td>
+        <td id="tuesday_9"></td>
+        <td id="wednesday_9"></td>
+        <td id="thursday_9"></td>
+        <td id="friday_9"></td>
+        <td id="saturday_9"></td>
+        <td id="sunday_9"></td>
+      </tr>
+      <!-- Ajoutez d'autres lignes pour d'autres plages horaires -->
+      <tr id="10">
+        <td>10:00 - 11:00</td>
+        <td id="monday_10"></td>
+        <td id="tuesday_10"></td>
+        <td id="wednesday_10"></td>
+        <td id="thursday_10"></td>
+        <td id="friday_10"></td>
+        <td id="saturday_10"></td>
+        <td id="sunday_10"></td>
+      </tr>
+      <tr id="11">
+        <td>11:00 - 12:00</td>
+        <td id="monday_11"></td>
+        <td id="tuesday_11"></td>
+        <td id="wednesday_11"></td>
+        <td id="thursday_11"></td>
+        <td id="friday_11"></td>
+        <td id="saturday_11"></td>
+        <td id="sunday_11"></td>
+      </tr>
+      <tr id="12">
+        <td>12:00 - 13:00</td>
+        <td id="monday_12"></td>
+        <td id="tuesday_12"></td>
+        <td id="wednesday_12"></td>
+        <td id="thursday_12"></td>
+        <td id="friday_12"></td>
+        <td id="saturday_12"></td>
+        <td id="sunday_12"></td>
+      </tr>
+    </tbody>
+  </table>
+  <ul id="reservationList"></ul>
+
+  <script src="reservation.js"></script>
+</body>
+
+</html>
